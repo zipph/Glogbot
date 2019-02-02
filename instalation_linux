@@ -1,0 +1,3 @@
+sudo cp -r ../Glogbot /opt/
+sudo cp sigsend /usr/bin
+sudo cp Glogbot /usr/bin

@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import sys
+import json
+import logging
+sys.path.insert(0, '/opt/Glogbot/src')
+from Glogger import Glogger
+
+
+if __name__ == '__main__':
+    logging.basicConfig(
+        format='%(asctime)s %(levelname)s:%(message)s',
+        level=logging.DEBUG)
+
+
+    with open("/opt/Glogbot/conf/config.json", 'r') as file:
+        conf = json.loads(file.read())
+
+    logging.propagate = conf["propagete_log"]
+
+    app = Glogger(conf)
+    app.run()

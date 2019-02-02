@@ -1,0 +1,13 @@
+{
+    "token": "700056094:AAEq8284ZIe08iBLRCRS8ACFyF-ywjK0hHk",
+    "id": 760478985,
+    "propagete_log":false,
+    "mqtt": {
+        "host": "localhost",
+        "port": 1883,
+        "timeout": 60,
+        "subscribe": [
+            "Glog/#"
+        ]
+    }
+}
