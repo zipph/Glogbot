@@ -4,15 +4,14 @@ import json
 import logging
 import time
 import datetime
+import subprocess
 
 from MqttHand import MqttHand
+import sys
+reload(sys)  
+sys.setdefaultencoding('utf8')
 
-def handle(msg):
-    idm = msg["chat"]["id"]
-    if msg["text"] == "holis":
-        bot.sendMessage(idm, "hla k Ase")
-    if msg["text"] == "Date":
-        bot.sendMessage(idm, str(datetime.datetime.now()))
+
 
 class Glogger():
     def __init__(self, conf):
@@ -28,7 +27,7 @@ class Glogger():
         for k in me.keys():
             logging.info(k + ": " + str(me[k]))
 
-        MessageLoop(self.bot, handle).run_as_thread()
+        MessageLoop(self.bot, self.handle).run_as_thread()
         self.mq.start()
 
         try:
@@ -45,5 +44,11 @@ class Glogger():
                 time.sleep(1)
         except KeyboardInterrupt:
             self.mq.disconnect()
+
+    def handle(self, msg):
+        idm = msg["chat"]["id"]
+        if idm == self.conf["id"]:
+            out = subprocess.check_output(msg["text"].lower().split(" "))
+            self.bot.sendMessage(idm, str(out))
 
 

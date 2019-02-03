@@ -15,7 +15,7 @@ if __name__ == '__main__':
     with open("/opt/Glogbot/conf/config.json", 'r') as file:
         conf = json.loads(file.read())
 
-    logging.propagate = conf["propagete_log"]
+    logging.propagate = conf["propagate_log"]
 
     app = Glogger(conf)
     app.run()
