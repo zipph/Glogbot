@@ -11,6 +11,8 @@ put your telegram account id in the configuration file
 
 in order to can usse sigsend u need to first launch in background Globot
 
+it also executes the bash commands that you could send writing the chat and returns the output =)
+
 
 
 DEPENDENCIES
